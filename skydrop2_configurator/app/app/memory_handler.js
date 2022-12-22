@@ -58,6 +58,13 @@ app.service("memory", ["$http", "$q", function($http, $q){
         	alert("Unable to load description files for build " + service.build_number + "!\nAre you using unofficial build?\nIf you think that this is an error please contact us at info@skybean.eu.");
         	service.load_bin("DROP2.EE", service.init_step_1);
         };
+
+        if (service.build_number < 8000)
+        {
+            alert("This configurator is for SkyDrop2. Your configuration is from original SkyDrop. redirecting you to the SkyDrop configurator.\nvps.skybean.eu/configurator")
+            window.location.href = "https://vps.skybean.eu/configurator/";
+            return;
+        }
     
         console.log("loading json resource %s", url_path);
 
@@ -680,7 +687,7 @@ app.service("memory", ["$http", "$q", function($http, $q){
         var deferred = $q.defer();
         this.fw_package_defered = deferred;
     	
-    	this.load_bin(this.fw_path + "UPDATE.FW", this.pack_fw);
+    	this.load_bin(this.fw_path + "DROP2.FW", this.pack_fw);
     	
         return deferred.promise;	
     };

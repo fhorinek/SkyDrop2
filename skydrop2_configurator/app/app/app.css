@@ -6,7 +6,20 @@
 body {
   padding-top: 50px;
 }
+.navbar-inverse .navbar-nav li a
+{
+    color: white !important;
+}
 
+.navbar-inverse .navbar-brand
+{
+    color: white !important;
+}
+
+.navbar-inverse
+{
+    background-color: #295e13 !important;
+}
 
 .panel {
     margin-top: 5px;
