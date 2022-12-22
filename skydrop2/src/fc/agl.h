@@ -1,0 +1,20 @@
+/*
+ * agl.h
+ *
+ *  Created on: 19. 1. 2017
+ *      Author: horinek
+ */
+
+#ifndef FC_AGL_H_
+#define FC_AGL_H_
+
+#include "../common.h"
+
+void agl_init();
+void agl_get_filename(char * fn, int32_t lat, int32_t lon);
+int16_t agl_get_alt(int32_t latitude, int32_t longtitude);
+void agl_step();
+
+#define AGL_INVALID -32767
+
+#endif /* FC_AGL_H_ */

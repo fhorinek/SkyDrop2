@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <title>SkyDrop Configurator</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jquery- -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- angular- -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    
+    <!-- angular-chart -->
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/angular-chart.js"></script>
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+
+    <!-- saver -->
+    <script src="bower_components/filesaver/FileSaver.js"></script>    
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>    
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>    
+    
+    <!-- font awsome -->
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+
+    <!-- bootstrap-angular-slider -->
+    <link rel="stylesheet" href="bower_components/seiyria-bootstrap-slider/css/bootstrap-slider.css">
+    <script src="bower_components/seiyria-bootstrap-slider/js/bootstrap-slider.js"></script>        
+    <script src="bower_components/angular-bootstrap-slider/slider.js"></script>        
+
+    <!-- bootstrap-ui-switch -->
+    <link rel="stylesheet" href="bower_components/angular-ui-switch/angular-ui-switch.css">
+    <script src="bower_components/angular-ui-switch/angular-ui-switch.js"></script>        
+
+    <!-- riffwave -->
+    <script src="app/riffwave.js"></script>    
+    
+    <!-- ngDragable -->
+    <script src="bower_components/ngDraggable/ngDraggable.js"></script>        
+    
+    <!-- APP- -->
+    <link rel="stylesheet" href="app/app.css">
+    <link rel="stylesheet" href="app/widgets.css">
+    <script src="app/app.js"></script>
+    <script src="app/ctrl.js"></script>
+    <script src="app/struct.js"></script>
+    <script src="app/memory_handler.js"></script>
+    <script src="app/screens.js"></script>
+    
+    <!-- PAGES- -->
+    <script src="app/wizard.js"></script>
+    <script src="app/simple.js"></script>
+    <script src="app/audio_profile.js"></script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-62428019-7', 'auto');
+	  ga('send', 'pageview');
+	
+	</script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    
+        <div class="container-fluid"  ng-controller="controls">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" ng-click="hide_nav = !hide_nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">SkyDrop Configurator</a><span ng-if="current_build()" class="navbar-brand" >(build {{current_build()}})</span>
+            </div>
+            <div id="navbar" class="navbar-collapse" ng-class="{'collapse': hide_nav}">
+            	<div>
+	                <ul class="nav navbar-nav navbar-right">
+	                    <li><a href="" ng-click="load()" title="Load your configuration from SkyDrop">Load</a></li>
+	                    <!--li><a href="" ng-click="save()" title="Save your configuration to SkyDrop This will update only configuration.">Save</a></li-->
+                        <li><a href="" ng-click="get_pack()" title="Save your configuration to skydrop bundled with firmware. This will update configuration and firmware.">Save</a></li>
+	                    <li><a href="" ng-click="restore_default()" title="Restore settings to default values.">Reset to default</a></li>
+	                    <li><a ng-if="is_old()" href="" ng-click="upgrade()" title="Update your old ({{current_build()}}) configuration to newest version.">Upgrade to {{newest()}}</a></li>
+	                </ul>
+					<div class="hidden">
+						<form name="file-form">
+							<input id="file-selector" onchange="angular.element(this).scope().read_file(this.files)" type="file" />
+						</form>
+					</div>    
+				</div>
+                <!-- form class="navbar-form navbar-right">
+                    <input ng-model="global_search" type="text" class="form-control" placeholder="Search...">
+                </form -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row" ng-controller="menuList">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar" ng-repeat="menu in menus">
+                    <li ng-class="{ active: isActive(item.ref)}" ng-repeat="item in menu">
+                        <a ng-href="#/{{item.ref}}" ng-click="select(item.ref)">{{item.title}}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
+                
+            </div>
+        </div>
+    </div>
+ 
+
+</body>
+</html>
