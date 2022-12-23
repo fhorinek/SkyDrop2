@@ -194,7 +194,7 @@ print "ok"
 
 print "Providing firmware, configuration and description files to configurator...",
 #firmware image
-shutil.copyfile("DROP2.FW", os.path.join(path, "DROP2.FW"))
+shutil.copyfile("DROP2.BIN", os.path.join(path, "DROP2.BIN"))
 #eeprom image
 shutil.copyfile("DROP2.EE", os.path.join(path, "DROP2.EE"))
 #disassembly

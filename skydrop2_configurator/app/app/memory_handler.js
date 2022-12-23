@@ -687,7 +687,7 @@ app.service("memory", ["$http", "$q", function($http, $q){
         var deferred = $q.defer();
         this.fw_package_defered = deferred;
     	
-    	this.load_bin(this.fw_path + "DROP2.FW", this.pack_fw);
+    	this.load_bin(this.fw_path + "DROP2.BIN", this.pack_fw);
     	
         return deferred.promise;	
     };

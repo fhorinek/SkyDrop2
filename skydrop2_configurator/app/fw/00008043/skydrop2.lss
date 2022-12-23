@@ -39069,7 +39069,7 @@ Rozloženie sekcie .text:
    171f0:	1f 92       	push	r1
    171f2:	2f e1       	ldi	r18, 0x1F	; 31
    171f4:	2f 93       	push	r18
-   171f6:	28 e6       	ldi	r18, 0x68	; 104
+   171f6:	2b e6       	ldi	r18, 0x6B	; 107
    171f8:	2f 93       	push	r18
    171fa:	9f 93       	push	r25
    171fc:	8f 93       	push	r24
@@ -39502,7 +39502,7 @@ Rozloženie sekcie .text:
    175e2:	90 91 36 2e 	lds	r25, 0x2E36	; 0x802e36 <update_head+0x1>
    175e6:	a0 91 37 2e 	lds	r26, 0x2E37	; 0x802e37 <update_head+0x2>
    175ea:	b0 91 38 2e 	lds	r27, 0x2E38	; 0x802e38 <update_head+0x3>
-   175ee:	88 36       	cpi	r24, 0x68	; 104
+   175ee:	8b 36       	cpi	r24, 0x6B	; 107
    175f0:	9f 41       	sbci	r25, 0x1F	; 31
    175f2:	a1 05       	cpc	r26, r1
    175f4:	b1 05       	cpc	r27, r1
@@ -40060,7 +40060,7 @@ Rozloženie sekcie .text:
    17b98:	1f 92       	push	r1
    17b9a:	2f e1       	ldi	r18, 0x1F	; 31
    17b9c:	2f 93       	push	r18
-   17b9e:	28 e6       	ldi	r18, 0x68	; 104
+   17b9e:	2b e6       	ldi	r18, 0x6B	; 107
    17ba0:	2f 93       	push	r18
    17ba2:	9f 93       	push	r25
    17ba4:	8f 93       	push	r24
@@ -41934,7 +41934,7 @@ Rozloženie sekcie .text:
    18bcc:	1f 92       	push	r1
    18bce:	2f e1       	ldi	r18, 0x1F	; 31
    18bd0:	2f 93       	push	r18
-   18bd2:	28 e6       	ldi	r18, 0x68	; 104
+   18bd2:	2b e6       	ldi	r18, 0x6B	; 107
    18bd4:	2f 93       	push	r18
    18bd6:	9f 93       	push	r25
    18bd8:	8f 93       	push	r24
@@ -76790,7 +76790,7 @@ Rozloženie sekcie .text:
    2b87e:	bb 81       	ldd	r27, Y+3	; 0x03
    2b880:	c7 53       	subi	r28, 0x37	; 55
    2b882:	d1 40       	sbci	r29, 0x01	; 1
-   2b884:	88 36       	cpi	r24, 0x68	; 104
+   2b884:	8b 36       	cpi	r24, 0x6B	; 107
    2b886:	9f 41       	sbci	r25, 0x1F	; 31
    2b888:	a1 05       	cpc	r26, r1
    2b88a:	b1 05       	cpc	r27, r1
@@ -76818,7 +76818,7 @@ Rozloženie sekcie .text:
    2b8b8:	1f 92       	push	r1
    2b8ba:	2f e1       	ldi	r18, 0x1F	; 31
    2b8bc:	2f 93       	push	r18
-   2b8be:	28 e6       	ldi	r18, 0x68	; 104
+   2b8be:	2b e6       	ldi	r18, 0x6B	; 107
    2b8c0:	2f 93       	push	r18
    2b8c2:	c6 5c       	subi	r28, 0xC6	; 198
    2b8c4:	de 4f       	sbci	r29, 0xFE	; 254
@@ -76963,7 +76963,7 @@ Rozloženie sekcie .text:
    2b9de:	0f 94 e3 1e 	call	0x23dc6	; 0x23dc6 <_Z6f_openP3FILPKch>
    2b9e2:	81 11       	cpse	r24, r1
    2b9e4:	f4 cf       	rjmp	.-24     	; 0x2b9ce <_Z11StoreEEPROMv+0x2e>
-   2b9e6:	88 e6       	ldi	r24, 0x68	; 104
+   2b9e6:	8b e6       	ldi	r24, 0x6B	; 107
    2b9e8:	9f e1       	ldi	r25, 0x1F	; 31
    2b9ea:	a0 e0       	ldi	r26, 0x00	; 0
    2b9ec:	b0 e0       	ldi	r27, 0x00	; 0
@@ -77737,7 +77737,7 @@ Rozloženie sekcie .text:
    2bff8:	7a 83       	std	Y+2, r23	; 0x02
    2bffa:	8b 83       	std	Y+3, r24	; 0x03
    2bffc:	9c 83       	std	Y+4, r25	; 0x04
-   2bffe:	88 e6       	ldi	r24, 0x68	; 104
+   2bffe:	8b e6       	ldi	r24, 0x6B	; 107
    2c000:	9f e1       	ldi	r25, 0x1F	; 31
    2c002:	89 87       	std	Y+9, r24	; 0x09
    2c004:	9a 87       	std	Y+10, r25	; 0x0a
