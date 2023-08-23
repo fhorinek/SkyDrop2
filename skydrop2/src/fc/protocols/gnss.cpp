@@ -44,7 +44,7 @@ bool gnss_rmc_msg(char * buff, uint16_t len)
 	snprintf(tmp, sizeof(tmp), "GPRMC,%02u%02u%02u,A,%s,%c,%s,%c,%0.1f,%u,%02u%02u%02u,0.0,E,A",
 			hour, min, sec,
 			slat, clat, slon, clon,
-			fc.gps_data.ground_speed * FC_MPS_TO_KNOTS, fc.gps_data.heading,
+			fc.gps_data.ground_speed, fc.gps_data.heading,
 			day, month, year);
 
 
