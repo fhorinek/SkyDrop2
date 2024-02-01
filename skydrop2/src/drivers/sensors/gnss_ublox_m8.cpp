@@ -421,8 +421,8 @@ bool ublox_handle_nav(uint8_t msg_id, uint8_t * msg_payload, uint16_t msg_len)
 
 		if (fc.gps_data.valid)
 		{
-			if (fc.gps_data.fix_cnt < GPS_FIX_CNT_MAX)
-				fc.gps_data.fix_cnt++;
+//			if (fc.gps_data.fix_cnt < GPS_FIX_CNT_MAX)
+//				fc.gps_data.fix_cnt++;
 		}
 		else
 		{
@@ -453,7 +453,7 @@ bool ublox_handle_nav(uint8_t msg_id, uint8_t * msg_payload, uint16_t msg_len)
 
 //        ublox_handle_itow(ubx_nav_timeutc->iTOW);
 
-		if ((ubx_nav_timeutc->valid & 0b00000111) == 0b00000111)
+		if ((ubx_nav_timeutc->valid & 0b00000111) == 0b00000111 && ubx_nav_timeutc->year > 2020)
 		{
 			fc.gps_data.utc_time = datetime_to_epoch(ubx_nav_timeutc->sec, ubx_nav_timeutc->min, ubx_nav_timeutc->hour,
 					ubx_nav_timeutc->day, ubx_nav_timeutc->month, ubx_nav_timeutc->year);
@@ -461,6 +461,9 @@ bool ublox_handle_nav(uint8_t msg_id, uint8_t * msg_payload, uint16_t msg_len)
 			DEBUG("DATE %u.%u.%u\n", ubx_nav_timeutc->day, ubx_nav_timeutc->month, ubx_nav_timeutc->year);
 			DEBUG("TIME %02u:%02u.%02u\n", ubx_nav_timeutc->hour, ubx_nav_timeutc->min, ubx_nav_timeutc->sec);
 			DEBUG("UTC %lu\n", fc.gps_data.utc_time);
+
+			if (fc.gps_data.fix_cnt < GPS_FIX_CNT_MAX)
+				fc.gps_data.fix_cnt++;
 		}
 
 		return true;
